@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.gregspitz.kelvinwidget">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -20,6 +20,16 @@
         </activity>
         <activity android:name=".temperature.TemperatureActivity">
         </activity>
+
+        <receiver android:name=".KelvinWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/kelvin_widget_info"/>
+        </receiver>
     </application>
 
 </manifest>
