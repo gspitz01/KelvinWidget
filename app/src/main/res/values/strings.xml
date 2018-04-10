@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">KelvinWidget</string>
+    <string name="see_weather_button_text">See Weather</string>
+    <string name="failed_to_load_weather_text">Failed to load weather</string>
+</resources>
