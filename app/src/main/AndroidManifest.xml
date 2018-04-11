@@ -18,7 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".temperature.TemperatureActivity">
+        <activity android:name=".weather.WeatherActivity">
         </activity>
 
         <receiver android:name=".KelvinWidget">

@@ -1,16 +1,16 @@
-package com.gregspitz.kelvinwidget.temperature
+package com.gregspitz.kelvinwidget.weather
 
 import com.gregspitz.kelvinwidget.UseCase
 import com.gregspitz.kelvinwidget.UseCaseHandler
-import com.gregspitz.kelvinwidget.temperature.domain.usecase.GetWeatherUseCase
+import com.gregspitz.kelvinwidget.weather.domain.usecase.GetWeatherUseCase
 
 /**
  * presenter for TemperatureView
  */
-class TemperaturePresenter(private val useCaseHandler: UseCaseHandler,
-                           private val view: TemperatureContract.View,
-                           private val getWeatherUseCase: GetWeatherUseCase)
-    : TemperatureContract.Presenter {
+class WeatherPresenter(private val useCaseHandler: UseCaseHandler,
+                       private val view: WeatherContract.View,
+                       private val getWeatherUseCase: GetWeatherUseCase)
+    : WeatherContract.Presenter {
 
     init {
         view.setPresenter(this)

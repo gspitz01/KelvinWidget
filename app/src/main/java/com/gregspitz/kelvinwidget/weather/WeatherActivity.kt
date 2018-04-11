@@ -1,23 +1,23 @@
-package com.gregspitz.kelvinwidget.temperature
+package com.gregspitz.kelvinwidget.weather
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.gregspitz.kelvinwidget.Injection
 import com.gregspitz.kelvinwidget.R
 import com.gregspitz.kelvinwidget.data.model.WeatherData
-import kotlinx.android.synthetic.main.activity_temperature.*
+import kotlinx.android.synthetic.main.activity_weather.*
 
-class TemperatureActivity : AppCompatActivity(), TemperatureContract.View {
+class WeatherActivity : AppCompatActivity(), WeatherContract.View {
 
-    private lateinit var presenter: TemperatureContract.Presenter
+    private lateinit var presenter: WeatherContract.Presenter
 
     private var active = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_temperature)
+        setContentView(R.layout.activity_weather)
 
-        TemperaturePresenter(Injection.provideUseCaseHandler(), this,
+        WeatherPresenter(Injection.provideUseCaseHandler(), this,
                 Injection.provideGetWeatherUseCase())
     }
 
@@ -32,7 +32,7 @@ class TemperatureActivity : AppCompatActivity(), TemperatureContract.View {
         active = false
     }
 
-    override fun setPresenter(presenter: TemperatureContract.Presenter) {
+    override fun setPresenter(presenter: WeatherContract.Presenter) {
         this.presenter = presenter
     }
 

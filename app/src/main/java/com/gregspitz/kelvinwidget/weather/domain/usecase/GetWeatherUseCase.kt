@@ -1,4 +1,4 @@
-package com.gregspitz.kelvinwidget.temperature.domain.usecase
+package com.gregspitz.kelvinwidget.weather.domain.usecase
 
 import com.gregspitz.kelvinwidget.UseCase
 import com.gregspitz.kelvinwidget.data.model.WeatherData

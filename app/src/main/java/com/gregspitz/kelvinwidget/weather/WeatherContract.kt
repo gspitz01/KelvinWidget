@@ -1,4 +1,4 @@
-package com.gregspitz.kelvinwidget.temperature
+package com.gregspitz.kelvinwidget.weather
 
 import com.gregspitz.kelvinwidget.BasePresenter
 import com.gregspitz.kelvinwidget.BaseView
@@ -7,7 +7,7 @@ import com.gregspitz.kelvinwidget.data.model.WeatherData
 /**
  * Contract between TemperatureView and its presenter
  */
-interface TemperatureContract {
+interface WeatherContract {
 
     interface View : BaseView<Presenter> {
 

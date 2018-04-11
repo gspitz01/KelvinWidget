@@ -2,7 +2,7 @@ package com.gregspitz.kelvinwidget
 
 import com.gregspitz.kelvinwidget.data.source.WeatherDataSource
 import com.gregspitz.kelvinwidget.data.source.remote.RetrofitRemoteWeatherDataSource
-import com.gregspitz.kelvinwidget.temperature.domain.usecase.GetWeatherUseCase
+import com.gregspitz.kelvinwidget.weather.domain.usecase.GetWeatherUseCase
 
 /**
  * Dependency injection

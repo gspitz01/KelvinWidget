@@ -1,10 +1,13 @@
 package com.gregspitz.kelvinwidget
 
+import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
+import android.content.Intent
 import android.widget.RemoteViews
-import com.gregspitz.kelvinwidget.temperature.domain.usecase.GetWeatherUseCase
+import com.gregspitz.kelvinwidget.weather.WeatherActivity
+import com.gregspitz.kelvinwidget.weather.domain.usecase.GetWeatherUseCase
 import java.text.DateFormat
 import java.util.*
 
@@ -32,10 +35,16 @@ class KelvinWidget : AppWidgetProvider() {
         internal fun updateAppWidget(context: Context, appWidgetManager: AppWidgetManager,
                                      appWidgetId: Int, temperature: Double, currentTime: String) {
 
-            val widgetText = "${temperature}K\n$currentTime"
+            val intent = Intent(context, WeatherActivity::class.java)
+            val pendingIntent = PendingIntent.getActivity(context, 0, intent,
+                    PendingIntent.FLAG_UPDATE_CURRENT)
             // Construct the RemoteViews object
             val views = RemoteViews(context.packageName, R.layout.kelvin_widget)
-            views.setTextViewText(R.id.appwidget_text, widgetText)
+            val temperatureText = "${temperature}K"
+            views.setTextViewText(R.id.appwidget_text, temperatureText)
+            val updateText = "Updated: $currentTime"
+            views.setTextViewText(R.id.update_date, updateText)
+            views.setOnClickPendingIntent(R.id.appwidget_text, pendingIntent)
 
             // Instruct the widget manager to update the widget
             appWidgetManager.updateAppWidget(appWidgetId, views)

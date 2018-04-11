@@ -1,11 +1,10 @@
-package com.gregspitz.kelvinwidget.temperature
+package com.gregspitz.kelvinwidget.weather
 
 import com.gregspitz.kelvinwidget.TestData
 import com.gregspitz.kelvinwidget.TestUseCaseScheduler
 import com.gregspitz.kelvinwidget.UseCaseHandler
-import com.gregspitz.kelvinwidget.data.model.*
 import com.gregspitz.kelvinwidget.data.source.WeatherDataSource
-import com.gregspitz.kelvinwidget.temperature.domain.usecase.GetWeatherUseCase
+import com.gregspitz.kelvinwidget.weather.domain.usecase.GetWeatherUseCase
 import com.nhaarman.mockito_kotlin.argumentCaptor
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
@@ -15,17 +14,17 @@ import org.junit.Test
 import org.mockito.Captor
 
 /**
- * tests for the implementation of {@link TemperaturePresenter}
+ * tests for the implementation of {@link WeatherPresenter}
  */
-class TemperaturePresenterTest {
+class WeatherPresenterTest {
 
 
 
-    private val view: TemperatureContract.View = mock()
+    private val view: WeatherContract.View = mock()
 
     private val dataSource: WeatherDataSource = mock()
 
-    private lateinit var presenter: TemperaturePresenter
+    private lateinit var presenter: WeatherPresenter
 
     @Captor
     private val getWeatherDataCaptor = argumentCaptor<WeatherDataSource.GetWeatherDataCallback>()
@@ -46,9 +45,9 @@ class TemperaturePresenterTest {
         verify(view).showWeather(TestData.weatherData)
     }
 
-    private fun createPresenter(): TemperaturePresenter {
+    private fun createPresenter(): WeatherPresenter {
         val getWeatherUseCase = GetWeatherUseCase(dataSource)
         val useCaseHandler = UseCaseHandler(TestUseCaseScheduler())
-        return TemperaturePresenter(useCaseHandler, view, getWeatherUseCase)
+        return WeatherPresenter(useCaseHandler, view, getWeatherUseCase)
     }
 }
